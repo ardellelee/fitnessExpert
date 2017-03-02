@@ -1,38 +1,12 @@
+;split BMI and BMR to different UI-states
+;by Neal @2017.03.02
+
 (deftemplate UI-state-bmi
    (slot bmi)
 )
 (deftemplate UI-state-bmr
-   (slot bmr)	
+   (slot bmr)
 )
-
-
-
-
-
-(defrule ageInp
-	=>
-	(printout t "Input your AGE (in years):" crlf)
-	(bind ?age (read))
-	(if (< ?age 18)
-		then
-		(assert (age 18L ?age))
-	)
-	(if (and (>= ?age 18) (< ?age 30))
-		then
-		(assert (age 30L ?age))
-	)
-	(if (and (>= ?age 30) (< ?age 50))
-		then
-		(assert (age 50L ?age))
-	)
-	(if (and (>= ?age 50) (< ?age 80))
-		then
-		(assert (age 80L ?age))
-	)
-	(if (>= ?age 80)
-		then
-		(printout t "You should go for priest !:)" crlf)
-))
 
 
 (defrule calcBMI ""
