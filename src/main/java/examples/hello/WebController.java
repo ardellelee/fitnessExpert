@@ -33,12 +33,8 @@ public class WebController extends WebMvcConfigurerAdapter {
         String[] answers = {
                 "(assert(weight "+args.getWeight()+"))",
                 "(assert(height "+args.getHeight()+"))",
-                "(assert(age "+args.getAge()+"))",
-                // "(assert(gender "+args.getIsMale()+"))",
-                // "(assert(age "+args.getIsVegetarian()+"))"
+                "(assert(age "+args.getAge()+"))"
         };
-
-
 
 
 
@@ -56,6 +52,7 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
         // assert gender
+        // don't use "(assert(age "+args.getIsMale()+"))" in answers, as facts in clips is M/F instead of 0/1
         if (args.getIsMale() == 1){
             clips.eval("(assert (gender M))");
         } else {
@@ -63,6 +60,7 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
         //assert age
+        //in clips logic, age is divided into 4 levels, so no use to send the exact age.
         int age = args.getAge();
         if(age<18){
             clips.eval("(assert (age 18L "+age+"))");
@@ -78,12 +76,13 @@ public class WebController extends WebMvcConfigurerAdapter {
             clips.eval("(assert (age 80L "+age+"))");
         }
 
+
         //assert vegetarian
-        if (args.getIsVegetarian() == 1){
-            clips.eval("(assert (foodtype vegetarian");
-        } else {
-            clips.eval("assert (foodtype nonvegetarian");
-        }
+//        if (args.getIsVegetarian() == 1){
+//            clips.eval("(assert (foodtype vegetarian");
+//        } else {
+//            clips.eval("assert (foodtype nonvegetarian");
+//        }
 
 
         clips.run();
