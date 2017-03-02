@@ -22,7 +22,7 @@ public class TestTest {
 
         clips = new Environment();
 
-        clips.loadFromResource("/test.clp");
+        clips.loadFromResource("/testBmi.clp");
 
         clips.reset();
 

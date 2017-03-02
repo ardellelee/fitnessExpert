@@ -1,3 +1,8 @@
+;original test code by chendan. 
+;test clips jni with bmi
+
+
+
 (deftemplate UI-state
    (slot display))
 
