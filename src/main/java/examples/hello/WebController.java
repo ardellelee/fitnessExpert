@@ -36,8 +36,10 @@ public class WebController extends WebMvcConfigurerAdapter {
                 "(assert(age "+args.getAge()+"))",
                 // "(assert(gender "+args.getIsMale()+"))",
                 // "(assert(age "+args.getIsVegetarian()+"))"
-
         };
+
+
+
 
 
         /*========================*/
@@ -45,16 +47,52 @@ public class WebController extends WebMvcConfigurerAdapter {
         /*========================*/
 
         clips = new Environment();
-        clips.loadFromResource("/testBmiBmr.clp");
+        clips.loadFromResource("/test.clp");
         clips.reset();
 
         // input
         for (String factString : answers) {
             clips.eval(factString);
         }
+
+        // assert gender
+        if (args.getIsMale() == 1){
+            clips.eval("(assert (gender M))");
+        } else {
+            clips.eval("(assert (gender F))");
+        }
+
+        //assert age
+        int age = args.getAge();
+        if(age<18){
+            clips.eval("(assert (age 18L "+age+"))");
+        }
+        else if(age<30){
+            clips.eval("(assert (age 30L "+age+"))");
+        }
+        else if(age<50){
+            clips.eval("(assert (age 50L "+age+"))");
+        }
+        else
+        {
+            clips.eval("(assert (age 80L "+age+"))");
+        }
+
+        //assert vegetarian
+        if (args.getIsVegetarian() == 1){
+            clips.eval("(assert (foodtype vegetarian");
+        } else {
+            clips.eval("assert (foodtype nonvegetarian");
+        }
+
+
         clips.run();
-        String evalStr ="(find-all-facts ((?f UI-state)) TRUE)";
-        FactAddressValue fv = (FactAddressValue) ((MultifieldValue) clips.eval(evalStr)).get(0);
+
+
+        String evalStrbmi ="(find-all-facts ((?f UI-state-bmi)) TRUE)";
+        FactAddressValue fvbmi = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmi)).get(0);
+        String evalStrbmr ="(find-all-facts ((?f UI-state-bmr)) TRUE)";
+        FactAddressValue fvbmr = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmr)).get(0);
 
         ret.put("success", true);
 
@@ -76,13 +114,13 @@ public class WebController extends WebMvcConfigurerAdapter {
 
         //output
         try{
-            resp.put("bmi", ((FloatValue) fv.getFactSlot("bmi")).floatValue()) ;
+            resp.put("bmi", ((FloatValue) fvbmi.getFactSlot("bmi")).floatValue()) ;
         } catch (Exception e){
             System.out.println(e.getStackTrace());
         }
 
         try{
-            resp.put("bmr", ((FloatValue) fv.getFactSlot("bmr")).floatValue()) ;
+            resp.put("bmr", ((FloatValue) fvbmr.getFactSlot("bmr")).floatValue()) ;
         } catch (Exception e){
             System.out.println(e.getStackTrace());
         }
