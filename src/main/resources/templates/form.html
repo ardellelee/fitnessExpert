@@ -46,13 +46,9 @@
                                     <input id="weight" name="weight" type="number" />
                                 </td>
                             </tr>
-                            <tr>
-                                <td><a id="submit" class="btn btn-default w-btn">Submit</a></td>
-                            </tr>
-
-
                         </table>
                     </div>
+
                     <div class="col-md-6 column">
                         <div class="row clearfix">
                             <div class="col-md-12 column">
@@ -155,100 +151,172 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </form>
+    <div class = "row clearfix">
+         <div class="col-md-6 column">
+
+             <tr>
+                 <td> How certain are you that you can follow diet provided daily?(0-1)</td>
+             </tr>
+
+         </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="dietCertain" name="dietCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+            <tr>
+                <td> How certain are you that you can follow exercise for 4 days per week?(0-1)</td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="exerciseCertain" name="exerciseCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+
+            <tr>
+                <td> How certain are you that you will follow 3 meal a day plan?(0-1)</td>
+            </tr>
+        </div>
+
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="mealCertain" name="mealCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+    <div class = "row clearfix">
+        <tr>
+            <td><center><a id="submit" class="btn btn-default w-btn">Submit</a></center></td>
+        </tr>
+    </div>
+
+
 </div>
 
 <div class="modal fade in" id="mySubmit" tabindex="-1" role="dialog" aria-labelledby="mySubmitLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:80%;">
+    <div class="modal-dialog" style="width:80%">
         <dd class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Report</h4>
+
+                <h4 style="text-align:center; font-family:arial; font-size:25px;" class="modal-title" id="myModalLabel">Fitness Plan Report</h4>
             </div>
-            <div class="modal-body" style="overflow-x:auto;height: 200px;">
-                <table id="Detail"  width="100%" border="0" style=" background-color:#fbfbfb" >
+            <div class="modal-body" style="overflow-x:auto; min-height:200px; background-color:#f9f9f9">
+                <table id="Detail" width="100%" border="0" style="font-family:arial; font-size:16px; border-collapse:separate; border-spacing:2px 5px;">
+
                     <tbody>
                     <tr>
-                        <td align="right" >your height is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" width="25%">Your height is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailHeight">
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your weight is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your weight is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailWeight">
 
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your age is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your age is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailAge">
 
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your gender is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your gender is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailGender">
 
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your food type is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your food type is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailFoodType">
 
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your allergy is :&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your allergy is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailAllergy">
 
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" >your BMI is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your BMI is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailBMI">
                         </td>
                     </tr>
 
                     <tr>
-                        <td align="right" >your BMR is:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your BMR is:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailBMR">
                         </td>
                     </tr>
 
 
                     <tr>
-                        <td align="right" >we found you to be:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >We found you to be:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailToB">
                         </td>
                     </tr>
+
                     <tr>
-                        <td align="right" >we recommend you:&nbsp;&nbsp;</td>
-                        <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="right" >Your diet plan:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
+                        <td align="left"  id="detailPlan">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" >We recommend you:</td>
+                        <td align="middle" width="5%">&nbsp;</td>
                         <td align="left"  id="detailRecommend">
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
+
             <div class="modal-footer">
-                <div class="cont-list">
-                    <a id="submitCancel"  href="javascript:;" class="btn btn-default w-btn" data-toggle="modal" data-target="#mySubmit">
-                        <i class="icon-x"></i>confirm
+                <div class="cont-list" align="center">
+                    <a id="submitCancel"  href="javascript:;" class="btn btn-default w-btn" data-toggle="modal" data-target="#mySubmit" style="background-color:ForestGreen; color:#FFFFFF">
+                        <i class="icon-x"></i>Confirm
                     </a>
                 </div>
             </div>

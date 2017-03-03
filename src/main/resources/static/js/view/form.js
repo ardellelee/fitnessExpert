@@ -24,6 +24,9 @@ var form;
             var isSoyaAndSulphides = $("#submitForm").find("input[name=isSoyaAndSulphides]").is(":checked");
             var isMale = $("#submitForm input[name='gender']:checked").val();
             var isVegetarian = $("#submitForm input[name='foodType']:checked").val();
+            var isDietCertain = $("#submitForm input[name='dietCertain']:checked").val();
+            var isExerciseCertain = $("#submitForm input[name='exerciseCertain']:checked").val();
+            var isMealCertain = $("#submitForm input[name='mealCertain']:checked").val();
             var args = {
                 age: age,
                 height: height,
@@ -37,7 +40,10 @@ var form;
                 isMilk: isMilk,
                 isMustard: isMustard,
                 isSesame: isSesame,
-                isSoyaAndSulphides: isSoyaAndSulphides
+                isSoyaAndSulphides: isSoyaAndSulphides,
+                isDietCertain: isDietCertain,
+                isExerciseCertain:isExerciseCertain,
+                isMealCertain:isMealCertain
             };
             Nicecom.Net.Ajax.post("/", args).trigger(e.target).json(function (u) {
                 if (u.success) {
@@ -51,6 +57,7 @@ var form;
                     $("#Detail").find("#detailBMI").text(u.response.bmi);
                     $("#Detail").find("#detailBMR").text(u.response.bmr);
                     $("#Detail").find("#detailToB").text(u.response.toB);
+                    $("#Detail").find("#detailPlan").text(u.response.plan);
                     $("#Detail").find("#detailRecommend").text(u.response.recommend);
                     $('#mySubmit').modal({ keyboard: false }).show();
                 }
