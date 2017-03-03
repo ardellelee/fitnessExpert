@@ -32,8 +32,8 @@ public class WebController extends WebMvcConfigurerAdapter {
         // answers
         String[] answers = {
                 "(assert(weight "+args.getWeight()+"))",
-                "(assert(height "+args.getHeight()+"))",
-                "(assert(age "+args.getAge()+"))"
+                "(assert(height "+args.getHeight()+"))"
+
         };
 
 
@@ -43,7 +43,7 @@ public class WebController extends WebMvcConfigurerAdapter {
         /*========================*/
 
         clips = new Environment();
-        clips.loadFromResource("/test.clp");
+        clips.loadFromResource("/mine_ext-withcf2.clp");
         clips.reset();
 
         // input
@@ -77,21 +77,75 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
 
-        //assert vegetarian
-//        if (args.getIsVegetarian() == 1){
-//            clips.eval("(assert (foodtype vegetarian");
-//        } else {
-//            clips.eval("assert (foodtype nonvegetarian");
-//        }
+        //assert DietCertain
+            clips.eval("(assert (current_fact (fact follow-diet) (cf "+args.getIsDietCertain()+")))");
+        //assert ExerciseCertain
+            clips.eval("(assert (current_fact (fact follow-exercise) (cf "+args.getIsExerciseCertain()+")))");
+        //assert MealCertain
+            clips.eval("(assert (current_fact (fact follow-meal) (cf "+args.getIsMealCertain()+")))");
+        //assert MedicalCertain
+            clips.eval("(assert (current_fact (fact medical-hist) (cf "+args.getIsMedicalCertain()+")))");
 
+        //assert vegetarian
+        if (args.getIsVegetarian() == 1){
+            clips.eval("(assert (foodtype vegetarian))");
+        } else {
+            clips.eval("assert (foodtype nonvegetarian))");
+        }
+
+        //assert allergy
+        if(args.getIsNone() == Boolean.TRUE){
+            clips.eval("(assert (allergy none))");
+        }
+        else if(args.getIsCelery() == Boolean.TRUE){
+            clips.eval("(assert (allergy celery))");
+        }
+        else if(args.getIsCerealsAndGluten()==Boolean.TRUE){
+            clips.eval("(assert (allergy cereals))");
+        }
+        else if(args.getIsLupin()==Boolean.TRUE){
+            clips.eval("(assert (allergy lipin))");
+        }
+        else if(args.getIsMilk()==Boolean.TRUE){
+            clips.eval("(assert (allergy milk))");
+        }
+        else if(args.getIsMustard()==Boolean.TRUE){
+            clips.eval("(assert (allergy mustard))");
+        }
+        else if(args.getIsSesame()==Boolean.TRUE){
+            clips.eval("(assert (allergy sesame))");
+        }
+        else if(args.getIsSoyaAndSulphides()==Boolean.TRUE){
+            clips.eval("(assert (allergy soya))");
+        }
 
         clips.run();
 
-
+        String breakfastcalorie ="(find-all-facts ((?f breakfastcalorie-fin)) TRUE)";
+        //get the value of breakfastcalorie'mealname
+        FactAddressValue fvbreakfastcalorie = (FactAddressValue) ((MultifieldValue) clips.eval(breakfastcalorie)).get(0);
+        String strBreakfast ="";
+        try {
+            strBreakfast = fvbreakfastcalorie.getFactSlot("mealname").toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String evalStrbmi ="(find-all-facts ((?f UI-state-bmi)) TRUE)";
+        //get BMI and BMR
         FactAddressValue fvbmi = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmi)).get(0);
         String evalStrbmr ="(find-all-facts ((?f UI-state-bmr)) TRUE)";
         FactAddressValue fvbmr = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmr)).get(0);
+        //get breakfast 1
+        String evalStrTest = "(find-all-facts ((?f "+strBreakfast+")) (eq ?f:type B))";
+        FactAddressValue fvbreakfast1Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(0);
+        //get breakfast 2
+
+        FactAddressValue fvbreakfast2Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(1);
+        FactAddressValue fvbreakfast3Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(2);
+        FactAddressValue fvbreakfast4Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(3);
+        FactAddressValue fvbreakfast5Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(4);
+        FactAddressValue fvbreakfast6Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(5);
+
 
         ret.put("success", true);
 
@@ -124,6 +178,81 @@ public class WebController extends WebMvcConfigurerAdapter {
             System.out.println(e.getStackTrace());
         }
 
+        try{
+            resp.put("breakfast1Name", (fvbreakfast1Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast2Name", (fvbreakfast2Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast3Name", (fvbreakfast3Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast4Name", (fvbreakfast4Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast5Name", (fvbreakfast5Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast6Name", (fvbreakfast6Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+
+        try{
+            resp.put("breakfast1Qty", (fvbreakfast1Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast2Qty", (fvbreakfast2Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast3Qty", (fvbreakfast3Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast4Qty", (fvbreakfast4Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast5Qty", (fvbreakfast5Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("breakfast6Qty", (fvbreakfast6Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+
+        clips.clear();
         return ret;
     }
 }

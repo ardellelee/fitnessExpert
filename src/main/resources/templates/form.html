@@ -190,6 +190,26 @@
         </div>
     </div>
 
+
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+            <tr>
+                <td> Did you have any previous medical history of high/low BP, Cholestrol or Diabetes ?</td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="medicalCertain" name="medicalCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+
     <div class = "row clearfix">
         <div class="col-md-6 column">
 
@@ -230,87 +250,286 @@
                 <h4 style="text-align:center; font-family:arial; font-size:25px;" class="modal-title" id="myModalLabel">Fitness Plan Report</h4>
             </div>
             <div class="modal-body" style="overflow-x:auto; min-height:200px; background-color:#f9f9f9">
-                <table id="Detail" width="100%" border="0" style="font-family:arial; font-size:16px; border-collapse:separate; border-spacing:2px 5px;">
+
 
                     <tbody>
-                    <tr>
-                        <td align="right" width="25%">Your height is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailHeight">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your weight is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailWeight">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your age is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailAge">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your gender is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailGender">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your food type is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailFoodType">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your allergy is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailAllergy">
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right" >Your BMI is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailBMI">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td align="right" >Your BMR is:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailBMR">
-                        </td>
-                    </tr>
 
 
-                    <tr>
-                        <td align="right" >We found you to be:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailToB">
-                        </td>
-                    </tr>
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <p>Your height is</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="detailHeight">Height</div>
+                         </div>
+                        <div class = "col-md-3">
+                            <p>Your weight is</p>
+                        </div>
+                        <div class ="col-md-3">
+                            <div id="detailWeight">Weight</div>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td align="right" >Your diet plan:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailPlan">
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td align="right" >We recommend you:</td>
-                        <td align="middle" width="5%">&nbsp;</td>
-                        <td align="left"  id="detailRecommend">
-                        </td>
-                    </tr>
+
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <p>Your age is</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="detailAge">Age</div>
+                        </div>
+                        <div class = "col-md-3">
+                            <p>Your gender is</p>
+                        </div>
+                        <div class ="col-md-3">
+                            <div id="detailGender">Gender</div>
+                        </div>
+                    </div>
+
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <p>Your food type is</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="detailFoodType">foodType</div>
+                        </div>
+                        <div class = "col-md-3">
+                            <p>Your confidence is</p>
+                        </div>
+                        <div class ="col-md-3">
+                            <div id="detailConfidence">confidence</div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row">
+                        <div class="col-md-3">
+                            <p>Your BMI is</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="detailBMI"></div>
+                        </div>
+                        <div class = "col-md-3">
+                            <p>Your BMR is</p>
+                        </div>
+                        <div class ="col-md-3">
+                            <div id="detailBMR"></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                        </div>
+                        <div class="col-md-2 column">
+                            <div>
+                                <p>
+                                    Meals for breakfast:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 column">
+                        </div>
+                        <div class="col-md-2 column">
+                        </div>
+                        <div class="col-md-2 column">
+                            <div>
+                                <p>
+                                    Meals for lunch:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 column">
+                        </div>
+                    </div>
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                             <p>
+                                Sno
+                             </p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div>
+                                <p>
+                                    Food Item Quantity:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>
+                                Quantity:
+                            </p>
+
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>
+                                Sno
+                            </p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div>
+                                <p>
+                                    Food Item Quantity:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>
+                                Quantity
+                            </p>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>1</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb1">fooditemb1</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb1">quantityb1</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>1</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml1">fooditeml1</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl1">quantityl1</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>2</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb2">fooditemb2</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb2">quantityb2</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>2</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml2">fooditeml2</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl2">quantityl2</div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>3</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb3">fooditemb3</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb3">quantityb3</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>2</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml3">fooditeml3</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl3">quantityl3</div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>4</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb4">fooditemb4</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb4">quantityb4</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>4</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml4">fooditeml4</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl4">quantityl4</div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>5</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb5">fooditemb5</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb5">quantityb5</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>5</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml5">fooditeml5</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl5">quantityl5</div>
+                        </div>
+                    </div>
+
+
+                    <div class = "row clearfix">
+                        <div class="col-md-2 column">
+                            <p>6</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditemb6">fooditemb6</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityb6">quantityb6</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <p>6</p>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="fooditeml6">fooditeml6</div>
+                        </div>
+                        <div class="col-md-2 column">
+                            <div id="quantityl6">quantityl6</div>
+                        </div>
+                    </div>
+
+
+
+
+
                     </tbody>
-                </table>
+
             </div>
 
             <div class="modal-footer">

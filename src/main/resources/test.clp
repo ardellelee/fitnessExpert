@@ -9,15 +9,16 @@
 )
 
 
-(defrule calcBMI
+(defrule calcBMI-UI
 	(weight ?w)(height ?h)
     =>
     (bind ?BMI (/ ?w (** (* 0.0254 ?h) 2)))
+
 	(assert (UI-state-bmi (bmi ?BMI)))
 )
 
 
-(defrule calcBMR
+(defrule calcBMR-UI
 	(weight ?w)(height ?h)(age ?a2)(gender ?g)
 	=>
 	(if (eq ?g M)
@@ -27,5 +28,7 @@
 	else
 		(bind ?BMR (- (- (+ (* 10 ?w) (* 15.875 ?h)) (* 5 ?a2)) 161))
 		(assert (UI-state-bmr(bmr ?BMR)))
+	)
+	)
 	)
 )

@@ -14,8 +14,12 @@ public class PersonForm {
     private int weight;
     private int isMale;
     private int isVegetarian;
+    private double isExerciseCertain;
+    private double isMealCertain;
+    private double isDietCertain;
+    private double isMedicalCertain;
     private Boolean isNone;
-    private Boolean sCelery;
+    private Boolean isCelery;
     private Boolean isCerealsAndGluten;
     private Boolean isLupin;
     private Boolean isMilk;
