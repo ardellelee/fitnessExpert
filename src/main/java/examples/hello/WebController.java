@@ -124,12 +124,27 @@ public class WebController extends WebMvcConfigurerAdapter {
         String breakfastcalorie ="(find-all-facts ((?f breakfastcalorie-fin)) TRUE)";
         //get the value of breakfastcalorie'mealname
         FactAddressValue fvbreakfastcalorie = (FactAddressValue) ((MultifieldValue) clips.eval(breakfastcalorie)).get(0);
+
+        String factConfidence = "(find-all-facts ((?f current_goal)) TRUE)";
+        FactAddressValue fvConfidence = (FactAddressValue) ((MultifieldValue) clips.eval(factConfidence)).get(0);
         String strBreakfast ="";
         try {
             strBreakfast = fvbreakfastcalorie.getFactSlot("mealname").toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        String lunchCalorie ="(find-all-facts ((?f lunchcalorie-fin)) TRUE)";
+        //get the value of lunchcalorie'mealname
+        FactAddressValue fvlunchCalorie = (FactAddressValue) ((MultifieldValue) clips.eval(lunchCalorie)).get(0);
+        String strLunch ="";
+        try {
+            strLunch = fvlunchCalorie.getFactSlot("mealname").toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(strLunch);
         String evalStrbmi ="(find-all-facts ((?f UI-state-bmi)) TRUE)";
         //get BMI and BMR
         FactAddressValue fvbmi = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmi)).get(0);
@@ -145,6 +160,18 @@ public class WebController extends WebMvcConfigurerAdapter {
         FactAddressValue fvbreakfast4Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(3);
         FactAddressValue fvbreakfast5Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(4);
         FactAddressValue fvbreakfast6Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(5);
+        String evalStrTestLunch = "(find-all-facts((?f "+strLunch+"))(eq ?f:type L))";
+        FactAddressValue fvLunch1Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestLunch)).get(0);
+        //get lunch
+
+        String evalStrTestDinner = "(find-all-facts((?f "+strLunch+"))(eq ?f:type D))";
+
+        FactAddressValue fvLunch2Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestLunch)).get(1);
+        FactAddressValue fvLunch3Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestLunch)).get(2);
+
+        FactAddressValue fvLunch4Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(0);
+        FactAddressValue fvLunch5Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(1);
+        FactAddressValue fvLunch6Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(2);
 
 
         ret.put("success", true);
@@ -252,6 +279,85 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
 
+        try{
+            resp.put("lunch1Name", (fvLunch1Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch2Name", (fvLunch2Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch3Name", (fvLunch3Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch4Name", (fvLunch4Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch5Name", (fvLunch5Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch6Name", (fvLunch6Name.getFactSlot("name").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+
+        try{
+            resp.put("lunch1Qty", (fvLunch1Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch2Qty", (fvLunch2Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch3Qty", (fvLunch3Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch4Qty", (fvLunch4Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch5Qty", (fvLunch5Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        try{
+            resp.put("lunch6Qty", (fvLunch6Name.getFactSlot("qty").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+
+        try{
+            resp.put("confidence", (fvConfidence.getFactSlot("cf").toString())) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
         clips.clear();
         return ret;
     }
