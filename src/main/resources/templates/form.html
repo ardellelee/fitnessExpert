@@ -9,248 +9,697 @@
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1 class="text-center">
+                Fitness Plan Recommendation System
+            </h1>
+        </div>
+    </div>
+    <form action="#" method="post" id="submitForm">
         <div class="row clearfix">
-            <div class="col-md-12 column">
-                <h1 class="text-center">
-                    Healthy Management
-                </h1>
+            <div class="col-md-8 column">
+                <h4>
+                    Basic Information
+                </h4>
+                <div class="row clearfix">
+                    <div class="col-md-6 column">
+                        <table>
+                            <tr>
+                                <td>Age：&nbsp;&nbsp;</td>
+                                <td>
+                                    <input id="age" name="age" type="number" />
+                                </td>
+                            </tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr>
+                                <td>Height：&nbsp;&nbsp;</td>
+                                <td>
+                                    <input id="height" name="height" type="number" />
+                                </td>
+                            </tr>
+                            <tr><td>&nbsp;</td></tr>
+                            <tr>
+                                <td>Weight：&nbsp;&nbsp;</td>
+                                <td>
+                                    <input id="weight" name="weight" type="number" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-md-6 column">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <table>
+                                    <tr>
+                                        <td align="right">Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td align="left">
+                                            <input type="radio" name="gender" value="1" checked="checked"/>Male
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"></td>
+                                        <td align="left">
+                                            <input type="radio" name="gender" value="0" />Female
+                                        </td>
+                                    </tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                    <tr><td>&nbsp;</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <table>
+                                    <tr>
+                                        <td align="right">Food Type:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td align="left">
+                                            <input type="radio" name="foodType" value="1" checked="checked"/>Vegetarian
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"></td>
+                                        <td align="left">
+                                            <input type="radio" name="foodType" value="0" />No vegetarian
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 column">
+                <h4>
+                    Please enter your allergy substance if any:
+                </h4>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <table>
+                            <tr>
+                                <td align="right">Allergy:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td align="left">
+                                    <input type="checkbox" id="isNone" name="isNone" />None
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isCelery" name="isCelery" />Celery
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isCerealsAndGluten" name="isCerealsAndGluten" />Cereals and Gluten
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isLupin" name="isLupin" />Lupin
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isMilk" name="isMilk" />Milk
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isMustard" name="isMustard" />Mustard
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isSesame" name="isSesame" />Sesame
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right"></td>
+                                <td align="left">
+                                    <input type="checkbox" id="isSoyaAndSulphides" name="isSoyaAndSulphides" />Soya and Sulphides
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-        <form action="#" method="post" id="submitForm">
-            <div class="row clearfix">
-                <div class="col-md-6 column">
-                    <h4>
-                        Basic Information
-                    </h4>
-                    <div class="row clearfix">
-                        <div class="col-md-6 column">
-                            <table>
-                                <tr>
-                                    <td>Age：&nbsp;&nbsp;</td>
-                                    <td>
-                                        <input id="age" name="age" type="number" />
-                                    </td>
-                                </tr>
-                                <tr><td>&nbsp;</td></tr>
-                                <tr>
-                                    <td>Height：&nbsp;&nbsp;</td>
-                                    <td>
-                                        <input id="height" name="height" type="number" />
-                                    </td>
-                                </tr>
-                                <tr><td>&nbsp;</td></tr>
-                                <tr>
-                                    <td>Weight：&nbsp;&nbsp;</td>
-                                    <td>
-                                        <input id="weight" name="weight" type="number" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-md-6 column">
-                            <div class="row clearfix">
-                                <div class="col-md-12 column">
-                                    <table>
-                                        <tr>
-                                            <td align="right">Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                            <td align="left">
-                                                <input type="radio" name="gender" value="1" checked="checked"/>Male
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right"></td>
-                                            <td align="left">
-                                                <input type="radio" name="gender" value="0" />Female
-                                            </td>
-                                        </tr>
-                                        <tr><td>&nbsp;</td></tr>
-                                        <tr><td>&nbsp;</td></tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-md-12 column">
-                                    <table>
-                                        <tr>
-                                            <td align="right">Food Type:&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                            <td align="left">
-                                                <input type="radio" name="foodType" value="1" checked="checked"/>Vegetarian
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right"></td>
-                                            <td align="left">
-                                                <input type="radio" name="foodType" value="0" />No vegetarian
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 column">
-                    <h4>
-                        Please enter your allergy substance
-                    </h4>
-                    <div class="row clearfix">
-                        <div class="col-md-12 column">
-                            <table>
-                                <tr>
-                                    <td align="right">Allergy:&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isNone" name="isNone" />None
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isCelery" name="isCelery" />Celery
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isCerealsAndGluten" name="isCerealsAndGluten" />Cereals and Gluten
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isLupin" name="isLupin" />Lupin
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isMilk" name="isMilk" />Milk
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isMustard" name="isMustard" />Mustard
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isSesame" name="isSesame" />Sesame
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="right"></td>
-                                    <td align="left">
-                                        <input type="checkbox" id="isSoyaAndSulphides" name="isSoyaAndSulphides" />Soya and Sulphides
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </form>
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+
             <tr>
-                <td><a id="submit" class="btn btn-default w-btn">Submit</a></td>
+                <td> How certain are you that you can follow diet provided daily?(0-1)</td>
             </tr>
 
-        </form>
-    </div>
+        </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="dietCertain" name="dietCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
 
-    <div class="modal fade in" id="mySubmit" tabindex="-1" role="dialog" aria-labelledby="mySubmitLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width:80%;">
-            <dd class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Report</h4>
-                </div>
-                <div class="modal-body" style="overflow-x:auto;height: 200px;">
-                    <table id="Detail"  width="100%" border="0" style=" background-color:#fbfbfb" >
-                        <tbody>
-                        <tr>
-                            <td align="right" >your height is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailHeight">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your weight is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailWeight">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your age is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailAge">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your gender is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailGender">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your food type is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailFoodType">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your allergy is :&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailAllergy">
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >your BMI is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailBMI">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td align="right" >your BMR is:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailBMR">
-                            </td>
-                        </tr>
-
-
-                        <tr>
-                            <td align="right" >we found you to be:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailToB">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" >we recommend you:&nbsp;&nbsp;</td>
-                            <td align="middle">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td align="left"  id="detailRecommend">
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <div class="cont-list">
-                        <a id="submitCancel"  href="javascript:;" class="btn btn-default w-btn" data-toggle="modal" data-target="#mySubmit">
-                            <i class="icon-x"></i>confirm
-                        </a>
-                    </div>
-                </div>
-            </dd>
         </div>
     </div>
 
-    <script type="text/javascript" src="/js/view/form.js"></script>
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+            <tr>
+                <td> How certain are you that you can follow exercise for 4 days per week?(0-1)</td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="exerciseCertain" name="exerciseCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+            <tr>
+                <td> Did you have any previous medical history of high/low BP, Cholestrol or Diabetes ?</td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="medicalCertain" name="medicalCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+
+    <div class = "row clearfix">
+        <div class="col-md-6 column">
+
+            <tr>
+                <td> How certain are you that you will follow 3 meal a day plan?(0-1)</td>
+            </tr>
+        </div>
+
+        <div class="col-md-2 column">
+            <tr>
+                <td>
+                    <input id="mealCertain" name="mealCertain" type="number" />
+                </td>
+            </tr>
+        </div>
+        <div class="col-md-2 column">
+
+        </div>
+    </div>
+
+    <div class = "row clearfix">
+        <tr>
+            <td><center><a id="submit" class="btn btn-default w-btn">Submit</a></center></td>
+        </tr>
+    </div>
+
+
+</div>
+
+<div class="modal fade in" id="mySubmit" tabindex="-1" role="dialog" aria-labelledby="mySubmitLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:80%">
+        <dd class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+
+                <h4 style="text-align:center; font-family:arial; font-size:25px;" class="modal-title" id="myModalLabel">Fitness Plan Report</h4>
+            </div>
+            <div class="modal-body" style="overflow-x:auto; min-height:200px; background-color:#f9f9f9">
+
+
+                <tbody>
+
+
+                <div class = "row">
+                    <div class="col-md-3">
+                        <p>Your height is</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="detailHeight">Height</div>
+                    </div>
+                    <div class = "col-md-3">
+                        <p>Your weight is</p>
+                    </div>
+                    <div class ="col-md-3">
+                        <div id="detailWeight">Weight</div>
+                    </div>
+                </div>
+
+
+
+                <div class = "row">
+                    <div class="col-md-3">
+                        <p>Your age is</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="detailAge">Age</div>
+                    </div>
+                    <div class = "col-md-3">
+                        <p>Your gender is</p>
+                    </div>
+                    <div class ="col-md-3">
+                        <div id="detailGender">Gender</div>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class="col-md-3">
+                        <p>Your food type is</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="detailFoodType">foodType</div>
+                    </div>
+                    <div class = "col-md-3">
+                        <p>Your confidence is</p>
+                    </div>
+                    <div class ="col-md-3">
+                        <div id="detailConfidence">confidence</div>
+                    </div>
+                </div>
+
+
+                <div class = "row">
+                    <div class="col-md-3">
+                        <p>Your BMI is</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div id="detailBMI"></div>
+                    </div>
+                    <div class = "col-md-3">
+                        <p>Your BMR is</p>
+                    </div>
+                    <div class ="col-md-3">
+                        <div id="detailBMR"></div>
+                    </div>
+                </div>
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-2 column">
+                    </div>
+                    <div class="col-md-2 column">
+                        <div>
+                            <p>
+                                Meals for breakfast:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                    </div>
+                    <div class="col-md-2 column">
+                    </div>
+                    <div class="col-md-2 column">
+                        <div>
+                            <p>
+                                Meals for lunch:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                    </div>
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>
+                            Sno
+                        </p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div>
+                            <p>
+                                Food Item Quantity:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <p>
+                            Quantity:
+                        </p>
+
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>
+                            Sno
+                        </p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div>
+                            <p>
+                                Food Item Quantity:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <p>
+                            Quantity
+                        </p>
+
+                    </div>
+                </div>
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>1</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb1">fooditemb1</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb1">quantityb1</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>1</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml1">fooditeml1</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl1">quantityl1</div>
+                    </div>
+                </div>
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>2</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb2">fooditemb2</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb2">quantityb2</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>2</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml2">fooditeml2</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl2">quantityl2</div>
+                    </div>
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>3</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb3">fooditemb3</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb3">quantityb3</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>3</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml3">fooditeml3</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl3">quantityl3</div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>4</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb4">fooditemb4</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb4">quantityb4</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>4</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml4">fooditeml4</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl4">quantityl4</div>
+                    </div>
+                </div>
+
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>5</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb5">fooditemb5</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb5">quantityb5</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>5</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml5">fooditeml5</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl5">quantityl5</div>
+                    </div>
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>6</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemb6">fooditemb6</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityb6">quantityb6</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <p>6</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditeml6">fooditeml6</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityl6">quantityl6</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-2 column">
+                    </div>
+                    <div class="col-md-2 column">
+                        <div>
+                            <p>
+                                Meals for dinner:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                    </div>
+                    <div class="col-md-6 column">
+                    </div>
+
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>
+                            Sno
+                        </p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div>
+                            <p>
+                                Food Item Quantity:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <p>
+                            Quantity:
+                        </p>
+
+                    </div>
+                    <div class="col-md-2 column">
+
+                    </div>
+                    <div class="col-md-2 column">
+                        <p>
+                            Exercise!
+                        </p>
+                    </div>
+                    <div class="col-md-2 column">
+
+                    </div>
+
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>1</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd1">fooditemb1</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <div id="quantityd1">quantityb1</div>
+                    </div>
+                    <div class="col-md-7 column">
+                        <div id="exercise1"></div>
+                    </div>
+                </div>
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>2</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd2">fooditemb2</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <div id="quantityd2">quantityb2</div>
+                    </div>
+                    <div class="col-md-7 column">
+                        <div id="exercise2">Try to cut down on the instant noodles and take-out food</div>
+                    </div>
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>3</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd3">fooditemb3</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <div id="quantityd3">quantityb3</div>
+                    </div>
+                    <div class="col-md-7 column">
+                        <div id="exercise3">Try to cut down on the instant noodles and take-out food</div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>4</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd4">fooditemb4</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <div id="quantityd4">quantityb4</div>
+                    </div>
+                    <div class="col-md-7 column">
+                        <div id="exercise4"></div>
+                    </div>
+                </div>
+
+
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>5</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd5">fooditemb5</div>
+                    </div>
+                    <div class="col-md-1 column">
+                        <div id="quantityd5">quantityb5</div>
+                    </div>
+                    <div class="col-md-7 column">
+
+                    </div>
+                </div>
+
+
+                <div class = "row clearfix">
+                    <div class="col-md-1 column">
+                        <p>6</p>
+                    </div>
+                    <div class="col-md-3 column">
+                        <div id="fooditemd6">fooditemb6</div>
+                    </div>
+                    <div class="col-md-2 column">
+                        <div id="quantityd6">quantityb6</div>
+                    </div>
+                    <div class="col-md-6 column">
+                    </div>
+
+                </div>
+
+
+
+                </tbody>
+
+            </div>
+
+            <div class="modal-footer">
+                <div class="cont-list" align="center">
+                    <a id="submitCancel"  href="javascript:;" class="btn btn-default w-btn" data-toggle="modal" data-target="#mySubmit" style="background-color:ForestGreen; color:#FFFFFF">
+                        <i class="icon-x"></i>Confirm
+                    </a>
+                </div>
+            </div>
+        </dd>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/view/form.js"></script>
 </body>
 </html>
