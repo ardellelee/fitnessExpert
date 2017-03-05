@@ -9,6 +9,16 @@
 	(slot carbs (type NUMBER))
 	(multislot type (allowed-symbols B L D N V))
 )
+
+(deftemplate UI-state-output
+	(slot output)
+
+)
+(deftemplate UI-state-output1
+	(slot output1)
+)
+
+
 (deftemplate foodg "information about food per 100gm"
 	(slot name)
 	(slot calorie (type NUMBER))
@@ -338,7 +348,6 @@
 	=>
 	(bind ?BMI (/ ?w (** (* 0.0254 ?h) 2)))
 	(assert (BMI ?BMI))
-	(assert (UI-state-bmi (bmi ?BMI)))
 )
 
 (defrule calcBMR
@@ -2959,3 +2968,262 @@
 => 	(assert (new_goal (goal plan-works) (cf (* ?cf-A -0.5))))
 )
 
+
+
+;;exercise part
+
+(defrule young-overweight
+	(agee ?a) (BMI ?b)
+	(test (<= ?a 18))
+	(test (> ?b 25))
+
+=>	(printout t "Avoid staying up late
+	" crlf)
+
+	(printout t "Don't eat your meals while watching TV and or a movie" crlf)
+	(assert (UI-state-output(output 1)))
+	(assert (exercise young-over))
+	(assert (tips 0))
+)
+
+(defrule young-underweight
+	(agee ?a) (BMI ?b)
+	(test (<= ?a 18))
+	(test (< ?b 19))
+
+=>	(printout t "Avoid skipping meals. Especially Breakfast
+	" crlf)
+	(printout t "Increase your intake of carbohydrates and protein heavy food" crlf)
+	(assert (UI-state-output(output 2)))
+	(assert (exercise young-under))
+	(assert (tips 0))
+)
+
+(defrule mid-overweight
+	(agee ?a) (BMI ?b)
+	(test (<= ?a 30))
+	(test (> ?a 23))
+	(test (> ?b 25))
+
+=>	(printout t "Avoid staying up late as 8 hours of sleep is absolutely necessary
+	" crlf)
+	(printout t "Do not eat anything 4 hours before bedtime" crlf)
+	(assert (UI-state-output(output 3)))
+	(assert (exercise mid-over))
+	(assert (tips 0))
+)
+
+(defrule mid-underweight
+	(agee ?a) (BMI ?b)
+	(test (<= ?a 30))
+	(test (> ?a 23))
+	(test (< ?b 19))
+
+=>	(printout t "Unhealthy foods will degrade your metabolism. Fruits are your friend.
+	" crlf)
+	(printout t "Do not forget to eat your meals" crlf)
+	(assert (UI-state-output(output 4)))
+	(assert (exercise mid-under))
+	(assert (tips 0))
+)
+
+(defrule teen-overweight
+	(agee ?a) (BMI ?b)
+	(test (> ?a 18))
+	(test (<= ?a 23))
+	(test (> ?b 25))
+
+=>	(printout t "Try to cut down on the instant noodles and take-out food
+	" crlf)
+	(printout t "Focus on cardio if your belly is mostly beer!" crlf)
+	(assert (UI-state-output(output 5)))
+	(assert (exercise teen-over))
+	(assert (tips 0))
+)
+
+(defrule teen-underweight
+	(agee ?a) (BMI ?b)
+	(test (> ?a 18))
+	(test (<= ?a 23))
+	(test (> ?b 19))
+
+=>	(printout t "Avoid skipping meals. Especially Breakfast!
+	" crlf)
+	(printout t "Replace junk food with granola bars and/or other protein heavy, healthier options" crlf)
+	(assert (UI-state-output(output 6)))
+	(assert (exercise teen-under))
+	(assert (tips 0))
+)
+
+(defrule old-overweight
+	(agee ?a) (BMI ?b)
+	(test (> ?a 30))
+	(test (> ?b 25))
+
+=>	(printout t "Avoid mid-day snacks and restrict your diet to three wholesome meals
+	" crlf)
+	(printout t "Make fitness a habit, not a chore!" crlf)
+	(assert (UI-state-output(output 7)))
+	(assert (exercise old-over))
+	(assert (tips 0))
+)
+
+(defrule old-underweight
+	(agee ?a) (BMI ?b)
+	(test (> ?a 30))
+	(test (> ?b 19))
+
+=>	(printout t "Add protein supplements and healthy calories such as nuts
+	" crlf)
+	(printout t "Try to plan a diet with several mini meals instead of 3 heavy meals" crlf)
+	(assert (UI-state-output(output 8)))
+	(assert (exercise old-under))
+	(assert (tips 0))
+)
+
+(defrule young-fit
+	(agee ?a) (BMI ?b)
+	(test (<= ?a 18))
+	(test (> ?b 25))
+	(test (< ?b 19))
+
+=>	(printout t "Focus on adding muscle mass by undertaking more muscle-heavy exercises
+	" crlf)
+	(printout t "Frame a comfortable diet plan and follow it diligently!" crlf)
+	(assert (UI-state-output(output 9)))
+	(assert (exercise fit))
+	(assert (tips 0))
+)
+
+(defrule teen-fit
+	(agee ?a) (BMI ?b)
+	(test (>= ?a 18))
+	(test (< ?a 23))
+	(test (> ?b 25))
+	(test (< ?b 19))
+
+=>	(printout t "Avoid alcohol and other unhealthy recreational activities
+	" crlf)
+	(printout t "Do not forget the importance of core strength! Bulk up your core muscles" crlf)
+	(assert (UI-state-output(output 10)))
+	(assert (exercise fit))
+	(assert (tips 0))
+)
+
+(defrule mid-fit
+	(agee ?a) (BMI ?b)
+	(test (>= ?a 23))
+	(test (< ?a 30))
+	(test (> ?b 25))
+	(test (< ?b 19))
+
+=>	(printout t "Try to maintain a regular workout pattern
+	" crlf)
+	(printout t "Don't eat your meals while watching TV and/or a movie" crlf)
+	(assert (UI-state-output(output 11)))
+	(assert (exercise fit))
+	(assert (tips 0))
+)
+
+(defrule old-fit
+	(agee ?a) (BMI ?b)
+	(test (>= ?a 30))
+	(test (> ?b 25))
+	(test (< ?b 19))
+
+=>	(printout t "Avoid heavy dinners
+	" crlf)
+	(printout t "Do not increase the rate of your workout without prior consultation" crlf)
+	(assert (UI-state-output(output 12)))
+	(assert (exercise fit))
+	(assert (tips 0))
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; EXERCISE RULES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+(defrule youngo
+	(control yes)
+	(exercise young-over)
+=> (printout t "Ideal Weekly Exercise Plan: 3 days of Cardio Exercise (Maybe Sports and/or Cycling)
+								 		2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 1)))
+	(assert (control no))
+
+)
+
+(defrule youngu
+	(control yeses)
+	(exercise young-under)
+=> (printout t "Ideal Weekly Exercise Plan: 1 days of Cardio Exercise (Maybe Sports and/or Cycling)
+									 		2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 2)))
+	(assert (control no))
+)
+
+(defrule oldo
+	(control yeses)
+	(exercise old-over)
+=> (printout t "Ideal Weekly Exercise Plan: 2 days of Cardio Exercise (Maybe Swimming and/or Cycling)
+									 		1 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 3)))
+    (assert (control no))
+)
+
+(defrule oldu
+	(control yes)
+	(exercise old-under)
+=> (printout t "Ideal Weekly Exercise Plan: 1 days of Cardio Exercise (Maybe Running and/or Cycling)
+										 		2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 4)))
+	(assert (control no))
+)
+
+(defrule mido
+	(control yes)
+	(exercise mid-over)
+=> (printout t "Ideal Weekly Exercise Plan: 2 days of Cardio Exercise (Maybe Swimming and/or Running)
+									 		1 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 5)))
+    (assert (control no))
+)
+
+(defrule midu
+ 	(control yes)
+	(exercise mid-under)
+=> (printout t "Ideal Weekly Exercise Plan: 1 days of Cardio Exercise (Maybe Swimming and/or Cycling)
+									 		2 days of Weight Workout	" crlf)
+ 	(assert (UI-state-output1(output1 6)))
+    (assert (control no))
+)
+
+(defrule teeno
+	(control yes)
+	(exercise teen-over)
+=> (printout t "Ideal Weekly Exercise Plan: 3 days of Cardio Exercise (Maybe Swimming and/or Running)
+										 		2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 7)))
+    (assert (control no))
+)
+
+(defrule teenu
+	(control yes)
+	(exercise teen-under)
+=> (printout t "Ideal Weekly Exercise Plan: 2 days of Cardio Exercise (Maybe Sports and/or Cycling)
+									 		2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 8)))
+    (assert (control no))
+)
+
+(defrule fit
+	(control yes)
+	(exercise fit)
+=> (printout t "Ideal Weekly Exercise Plan: 2 days of Cardio Exercise (Maybe Cycling and/or Running)
+											2 days of Weight Workout	" crlf)
+	(assert (UI-state-output1(output1 9)))
+   (assert (control no))
+)

@@ -98,6 +98,10 @@ var form;
                     $("#quantityd5").text(u.response.lunch5Qty);
                     $("#quantityd6").text(u.response.lunch6Qty);
                     $("#detailConfidence").text(u.response.confidence);
+                    $("#exercise1").text(u.response.respect1);
+                    $("#exercise2").text(u.response.respect2);
+                    $("#exercise3").text(u.response.respect3);
+                    $("#exercise4").text(u.response.respect4);
                     $('#mySubmit').modal({ keyboard: false }).show();
                 }
                 else {
