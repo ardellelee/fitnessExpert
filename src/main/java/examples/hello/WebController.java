@@ -46,7 +46,7 @@ public class WebController extends WebMvcConfigurerAdapter {
         /*========================*/
 
         clips = new Environment();
-        clips.loadFromResource("/mine_ext-withcf2.clp");
+        clips.loadFromResource("/FitnessES.clp");
         clips.reset();
 
         // input
@@ -138,6 +138,8 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
         String lunchCalorie ="(find-all-facts ((?f lunchcalorie-fin)) TRUE)";
+
+
         //get the value of lunchcalorie'mealname
         FactAddressValue fvlunchCalorie = (FactAddressValue) ((MultifieldValue) clips.eval(lunchCalorie)).get(0);
         String strLunch ="";
@@ -148,26 +150,33 @@ public class WebController extends WebMvcConfigurerAdapter {
         }
 
         String evalStrbmi ="(find-all-facts ((?f UI-state-bmi)) TRUE)";
+
+
         //get BMI and BMR
         FactAddressValue fvbmi = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmi)).get(0);
 
+        String evalStribw ="(find-all-facts ((?f UI-state-ibw)) TRUE)";
+        FactAddressValue fvibw = (FactAddressValue) ((MultifieldValue) clips.eval(evalStribw)).get(0);
 
         String evalStrbmr ="(find-all-facts ((?f UI-state-bmr)) TRUE)";
         FactAddressValue fvbmr = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrbmr)).get(0);
+
+
         //get breakfast 1
         String evalStrTest = "(find-all-facts ((?f "+strBreakfast+")) (eq ?f:type B))";
         FactAddressValue fvbreakfast1Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(0);
         //get breakfast 2
-
         FactAddressValue fvbreakfast2Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(1);
         FactAddressValue fvbreakfast3Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(2);
         FactAddressValue fvbreakfast4Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(3);
         FactAddressValue fvbreakfast5Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(4);
         FactAddressValue fvbreakfast6Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTest)).get(5);
+
+
         String evalStrTestLunch = "(find-all-facts((?f "+strLunch+"))(eq ?f:type L))";
         FactAddressValue fvLunch1Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestLunch)).get(0);
-        //get lunch
 
+        //get lunch
         String evalStrTestDinner = "(find-all-facts((?f "+strLunch+"))(eq ?f:type D))";
 
         FactAddressValue fvLunch2Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestLunch)).get(1);
@@ -176,6 +185,8 @@ public class WebController extends WebMvcConfigurerAdapter {
         FactAddressValue fvLunch4Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(0);
         FactAddressValue fvLunch5Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(1);
         FactAddressValue fvLunch6Name = (FactAddressValue) ((MultifieldValue) clips.eval(evalStrTestDinner)).get(2);
+
+
        // exercise part
         String output ="(find-all-facts ((?f UI-state-output)) TRUE)";
         String output1 ="(find-all-facts ((?f UI-state-output1)) TRUE)";
@@ -344,6 +355,12 @@ public class WebController extends WebMvcConfigurerAdapter {
         } catch (Exception e){
             System.out.println(e.getStackTrace());
         }
+        try{
+            resp.put("ibw", ((FloatValue) fvibw.getFactSlot("ibw")).floatValue()) ;
+        } catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
 
         try{
             resp.put("bmr", ((FloatValue) fvbmr.getFactSlot("bmr")).floatValue()) ;

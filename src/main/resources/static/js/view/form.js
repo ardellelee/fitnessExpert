@@ -11,6 +11,9 @@ var form;
             $("#submit").click(this.submit.bind(this));
         }
         List.prototype.submit = function (e) {
+
+
+
             var age = $("#submitForm").find("input[name=age]").val();
             var height = $("#submitForm").find("input[name=height]").val();
             var weight = $("#submitForm").find("input[name=weight]").val();
@@ -58,6 +61,7 @@ var form;
                     $("#detailAllergy").text(u.response.allergy);
                     $("#detailBMI").text(u.response.bmi);
                     $("#detailBMR").text(u.response.bmr);
+                    $("#idealWeight").text(u.response.ibw);
                     $("#detailToB").text(u.response.toB);
                     $("#detailPlan").text(u.response.plan);
                     $("#detailRecommend").text(u.response.recommend);
@@ -67,36 +71,36 @@ var form;
                     $("#fooditemb4").text(u.response.breakfast4Name);
                     $("#fooditemb5").text(u.response.breakfast5Name);
                     $("#fooditemb6").text(u.response.breakfast6Name);
+
                     $("#quantityb1").text(u.response.breakfast1Qty);
                     $("#quantityb2").text(u.response.breakfast2Qty);
                     $("#quantityb3").text(u.response.breakfast3Qty);
                     $("#quantityb4").text(u.response.breakfast4Qty);
                     $("#quantityb5").text(u.response.breakfast5Qty);
                     $("#quantityb6").text(u.response.breakfast6Qty);
+
                     $("#fooditeml1").text(u.response.lunch1Name);
                     $("#fooditeml2").text(u.response.lunch2Name);
                     $("#fooditeml3").text(u.response.lunch3Name);
                     $("#fooditeml4").text(u.response.lunch4Name);
                     $("#fooditeml5").text(u.response.lunch5Name);
                     $("#fooditeml6").text(u.response.lunch6Name);
+
                     $("#quantityl1").text(u.response.lunch1Qty);
                     $("#quantityl2").text(u.response.lunch2Qty);
                     $("#quantityl3").text(u.response.lunch3Qty);
                     $("#quantityl4").text(u.response.lunch4Qty);
                     $("#quantityl5").text(u.response.lunch5Qty);
                     $("#quantityl6").text(u.response.lunch6Qty);
-                    $("#fooditemd1").text(u.response.lunch1Name);
-                    $("#fooditemd2").text(u.response.lunch2Name);
-                    $("#fooditemd3").text(u.response.lunch3Name);
+
                     $("#fooditemd4").text(u.response.lunch4Name);
                     $("#fooditemd5").text(u.response.lunch5Name);
                     $("#fooditemd6").text(u.response.lunch6Name);
-                    $("#quantityd1").text(u.response.lunch1Qty);
-                    $("#quantityd2").text(u.response.lunch2Qty);
-                    $("#quantityd3").text(u.response.lunch3Qty);
+
                     $("#quantityd4").text(u.response.lunch4Qty);
                     $("#quantityd5").text(u.response.lunch5Qty);
                     $("#quantityd6").text(u.response.lunch6Qty);
+
                     $("#detailConfidence").text(u.response.confidence);
                     $("#exercise1").text(u.response.respect1);
                     $("#exercise2").text(u.response.respect2);
@@ -105,7 +109,7 @@ var form;
                     $('#mySubmit').modal({ keyboard: false }).show();
                 }
                 else {
-                    $alert(u.data, "提示");
+                    $alert(u.data, "Notice");
                 }
             });
         };

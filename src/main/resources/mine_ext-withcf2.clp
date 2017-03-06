@@ -175,6 +175,11 @@
 (deftemplate UI-state-bmi
    (slot bmi)
 )
+
+(deftemplate UI-state-ibw
+   (slot ibw)
+)
+
 (deftemplate UI-state-bmr
    (slot bmr)
 )
@@ -435,6 +440,19 @@
 	else
 		(bind ?IBW (+ 45.5 (* 2.3 (- ?h 60))))
 		(assert (IBW ?IBW))
+	)
+)
+
+(defrule IntendedBodyWeight-UI
+	(gender ?g)(weight ?w)(height ?h)
+	=>
+	(if (eq ?g M)
+		then
+		(bind ?IBW (+ 50 (* 2.3 (- ?h 60))))
+		(assert (UI-state-ibw(ibw ?IBW)))
+	else
+		(bind ?IBW (+ 45.5 (* 2.3 (- ?h 60))))
+		(assert (UI-state-ibw(ibw ?IBW)))
 	)
 )
 ;;;;;;;if ABW is created it means person is obese;;;;;;;;;;;;
